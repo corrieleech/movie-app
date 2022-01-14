@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  get "/movies" => "movies#index"
+  get "/movies/:id" => "movies#show"
+  get "/movies_a_to_z" => "movies#alphabetical"
+  get "/newest_5_movies" => "movies#five_recent"
+  get "/newest_10_movies" => "movies#next_five_recent"
+  get "/eighties_movies" => "movies#eighties"
 end
