@@ -3,3 +3,12 @@ GET http://localhost:3000/movies
 ###
 
 GET http://localhost:3000/movies/3
+
+###
+
+POST http://localhost:3000/actors/
+Content-Type: application/json
+
+{
+  "id": 9
+}
