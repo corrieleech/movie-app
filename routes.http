@@ -1,14 +1,65 @@
+#Movies Index
 GET http://localhost:3000/movies
 
 ###
-
-GET http://localhost:3000/movies/3
-
-###
-
-POST http://localhost:3000/actors/
+#Movies Create
+POST http://localhost:3000/movies
 Content-Type: application/json
 
 {
-  "id": 9
+  "title": "American Beauty",
+  "year": 1999,
+  "plot": "A frustrated suburban father has a mid-life crisis after becoming infatuated with his daughter's best friend."
 }
+
+###
+#Movies Show
+GET http://localhost:3000/movies/2
+
+###
+#Movies Update
+PATCH http://localhost:3000/movies/1
+Content-Type: application/json
+
+{
+  "title": "Titanic"
+}
+
+###
+#Movies Destroy
+DELETE http://localhost:3000/movies/1
+
+########ACTORS#########
+
+#Actor Index
+GET http://localhost:3000/actors
+
+###
+#Actor Create
+POST http://localhost:3000/actors
+Content-Type: application/json
+
+{
+  "first_name": "Will",
+  "last_name": "Smith",
+  "known_for": "Men in Black"
+}
+
+###
+#Actors Show
+GET http://localhost:3000/actors/6
+
+###
+#Actors Update
+PATCH http://localhost:3000/actors/16
+Content-Type: application/json
+
+{
+  "last_name": "Smith"
+}
+
+###
+#Actors Destory
+DELETE http://localhost:3000/actors/16
+
+###
