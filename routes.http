@@ -9,7 +9,9 @@ Content-Type: application/json
 {
   "title": "American Beauty",
   "year": 1999,
-  "plot": "A frustrated suburban father has a mid-life crisis after becoming infatuated with his daughter's best friend."
+  "plot": "A frustrated suburban father has a mid-life crisis after becoming infatuated with his daughter's best friend.",
+  "director": "",
+  "english": true
 }
 
 ###
@@ -18,11 +20,11 @@ GET http://localhost:3000/movies/2
 
 ###
 #Movies Update
-PATCH http://localhost:3000/movies/1
+PATCH http://localhost:3000/movies/3
 Content-Type: application/json
 
 {
-  "title": "Titanic"
+  "director": "Jim Abrahams, David Zucker, Jerry Zucker"
 }
 
 ###
@@ -42,20 +44,23 @@ Content-Type: application/json
 {
   "first_name": "Will",
   "last_name": "Smith",
-  "known_for": "Men in Black"
+  "known_for": "Men in Black",
+  "age": 23,
+  "gender": "male"
 }
 
 ###
 #Actors Show
-GET http://localhost:3000/actors/6
+GET http://localhost:3000/actors/7
 
 ###
 #Actors Update
-PATCH http://localhost:3000/actors/16
+PATCH http://localhost:3000/actors/7
 Content-Type: application/json
 
 {
-  "last_name": "Smith"
+  "age": 32,
+  "gender": "male"
 }
 
 ###
@@ -63,3 +68,7 @@ Content-Type: application/json
 DELETE http://localhost:3000/actors/16
 
 ###
+
+#TESTING QUERY PARAMS TO STAY RESTFUL
+
+GET http://localhost:3000/movies/?year=1999
