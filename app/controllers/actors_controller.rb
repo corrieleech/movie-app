@@ -1,4 +1,5 @@
 class ActorsController < ApplicationController
+
   def index
     actors = Actor.all
     render json: actors.as_json
@@ -10,10 +11,14 @@ class ActorsController < ApplicationController
       last_name: params[:last_name],
       known_for: params[:known_for],
       age: params[:age],
-      gender: params[:gender],
+      gender: params[:gender]
     )
     actor.save
-    render json: actor.as_json
+    if actor.save == false
+      render json: {message: "Entry could not be created due to the following error(s): #{actor.errors.full_messages}"}
+    else
+      render json: actor.to_json
+    end
   end
 
   def show
@@ -29,7 +34,11 @@ class ActorsController < ApplicationController
     actor.age = params[:age] || actor.age
     actor.gender = params[:gender] || actor.gender
     actor.save
-    render json: actor.as_json
+    if actor.save == false
+      render json: {message: "Actor failed to update due to the following error(s): #{actor.errors.full_messages}"}
+    else
+      render json: actor.to_json
+    end
   end
 
   def destroy

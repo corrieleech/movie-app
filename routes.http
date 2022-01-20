@@ -7,10 +7,10 @@ POST http://localhost:3000/movies
 Content-Type: application/json
 
 {
-  "title": "American Beauty",
-  "year": 1999,
-  "plot": "A frustrated suburban father has a mid-life crisis after becoming infatuated with his daughter's best friend.",
-  "director": "",
+  "title": "Test Movie",
+  "year": 2022,
+  "plot": "A budding engineer makes a movie entry. Ebert gives it 4 stars.",
+  "director": "Corrie Leech",
   "english": true
 }
 
@@ -45,7 +45,7 @@ Content-Type: application/json
   "first_name": "Will",
   "last_name": "Smith",
   "known_for": "Men in Black",
-  "age": 23,
+  "age": 10,
   "gender": "male"
 }
 
@@ -59,7 +59,7 @@ PATCH http://localhost:3000/actors/7
 Content-Type: application/json
 
 {
-  "age": 32,
+  "age": 12,
   "gender": "male"
 }
 
@@ -68,7 +68,3 @@ Content-Type: application/json
 DELETE http://localhost:3000/actors/16
 
 ###
-
-#TESTING QUERY PARAMS TO STAY RESTFUL
-
-GET http://localhost:3000/movies/?year=1999

@@ -12,7 +12,11 @@ class MoviesController < ApplicationController
       director: params[:director], 
       english: params[:english])
     movie.save
-    render json: movie.to_json
+    if movie.save == false
+      render json: {message: "Entry could not be created due to the following error(s): #{movie.errors.full_messages}"}
+    else
+      render json: movie.to_json
+    end
   end
 
   def show
@@ -28,33 +32,17 @@ class MoviesController < ApplicationController
     movie.director = params[:director] || movie.director
     movie.english = params[:english] || movie.english
     movie.save
-    render json: movie.to_json
+    if movie.save == false
+      render json: {message: "Updates could not be saved due to the following error(s): #{movie.errors.full_messages}"}
+    else
+      render json: movie.to_json
+    end
   end
 
   def destroy
     movie = Movie.find(params[:id])
     movie.destroy
     render json: {message: "The movie has been removed from the database."}
-  end
-
-  def alphabetical
-    movies = Movie.order("title")
-    render json: movies.to_json
-  end
-  
-  def five_recent
-    movies = Movie.order(year: :desc).limit(5)
-    render json: movies.to_json
-  end
-  
-  def next_five_recent
-    movies = Movie.order(year: :desc).offset(5)
-    render json: movies.to_json
-  end
-  
-  def eighties
-    movies = Movie.all.select {|movie| movie.year >= 1980 && movie.year < 1990 }
-    render json: movies
   end
 
 end
