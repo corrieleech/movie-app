@@ -7,11 +7,11 @@ POST http://localhost:3000/movies
 Content-Type: application/json
 
 {
-  "title": "Test Movie",
-  "year": 2022,
-  "plot": "A budding engineer makes a movie entry. Ebert gives it 4 stars.",
-  "director": "Corrie Leech",
-  "english": true
+  "title": "Parasite",
+  "year": 2019,
+  "plot": "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.",
+  "director": "Bong Joon Ho",
+  "english": false
 }
 
 ###
@@ -20,16 +20,16 @@ GET http://localhost:3000/movies/2
 
 ###
 #Movies Update
-PATCH http://localhost:3000/movies/3
+PATCH http://localhost:3000/movies/12
 Content-Type: application/json
 
 {
-  "director": "Jim Abrahams, David Zucker, Jerry Zucker"
+  "title": "Coding Wonderland"
 }
 
 ###
 #Movies Destroy
-DELETE http://localhost:3000/movies/1
+DELETE http://localhost:3000/movies/14
 
 ########ACTORS#########
 
