@@ -46,7 +46,8 @@ Content-Type: application/json
   "last_name": "Smith",
   "known_for": "Men in Black",
   "age": 10,
-  "gender": "male"
+  "gender": "male",
+  "movie_id": 7
 }
 
 ###
