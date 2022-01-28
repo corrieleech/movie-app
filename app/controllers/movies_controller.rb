@@ -1,4 +1,6 @@
 class MoviesController < ApplicationController
+  before_action :authenticate_admin, only: [:create, :update, :destroy]
+  
   def index
     movies = Movie.where("english = true")
     render json: movies.to_json

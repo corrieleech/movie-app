@@ -1,3 +1,6 @@
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NDM0MjY1OTR9.ADIX4h9L7JGk-NqsrDGwdAIy-UQwQ7RVaXs4wZmnrZ4
+#nonadmin
+
 #Movies Index
 GET http://localhost:3000/movies
 
@@ -5,13 +8,14 @@ GET http://localhost:3000/movies
 #Movies Create
 POST http://localhost:3000/movies
 Content-Type: application/json
+Authorization: Bearer {{ jwt }}
 
 {
-  "title": "Parasite",
-  "year": 2019,
-  "plot": "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.",
-  "director": "Bong Joon Ho",
-  "english": false
+  "title": "The Party",
+  "year": 1968,
+  "plot": "A clerical mistake results in a bumbling Indian film star being invited to an exclusive Hollywood party instead of being fired.",
+  "director": "Blake Edwards",
+  "english": true
 }
 
 ###
@@ -20,16 +24,18 @@ GET http://localhost:3000/movies/2
 
 ###
 #Movies Update
-PATCH http://localhost:3000/movies/12
+PATCH http://localhost:3000/movies/20
 Content-Type: application/json
+Authorization: Bearer {{ jwt }}
 
 {
-  "title": "Coding Wonderland"
+  "title": "The Party"
 }
 
 ###
 #Movies Destroy
-DELETE http://localhost:3000/movies/14
+DELETE http://localhost:3000/movies/19
+Authorization: Bearer {{ jwt }}
 
 ########ACTORS#########
 
@@ -40,14 +46,15 @@ GET http://localhost:3000/actors
 #Actor Create
 POST http://localhost:3000/actors
 Content-Type: application/json
+Authorization: Bearer {{ jwt }}
 
 {
-  "first_name": "Will",
-  "last_name": "Smith",
-  "known_for": "Men in Black",
-  "age": 10,
+  "first_name": "Corrie",
+  "last_name": "Leech",
+  "known_for": "Coding Blunders 2.0",
+  "age": 35,
   "gender": "male",
-  "movie_id": 7
+  "movie_id": 20
 }
 
 ###
@@ -56,16 +63,18 @@ GET http://localhost:3000/actors/7
 
 ###
 #Actors Update
-PATCH http://localhost:3000/actors/7
+PATCH http://localhost:3000/actors/18
 Content-Type: application/json
+Authorization: Bearer {{ jwt }}
 
 {
-  "age": 12,
-  "gender": "male"
+  "age": 35,
+  "gender": "female"
 }
 
 ###
 #Actors Destory
-DELETE http://localhost:3000/actors/16
+DELETE http://localhost:3000/actors/18
+Authorization: Bearer {{ jwt }}
 
 ###

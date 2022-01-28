@@ -1,5 +1,6 @@
 class ActorsController < ApplicationController
-
+  before_action :authenticate_admin, only: [:create, :update, :destroy]
+  
   def index
     actors = Actor.all.order(age: :desc)
     render json: actors.as_json
