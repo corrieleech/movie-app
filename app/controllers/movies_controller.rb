@@ -3,7 +3,7 @@ class MoviesController < ApplicationController
   
   def index
     movies = Movie.where("english = true")
-    render json: movies.to_json
+    render json: movies
   end
   
   def create
@@ -17,13 +17,13 @@ class MoviesController < ApplicationController
     if movie.save == false
       render json: {message: "Entry could not be created due to the following error(s): #{movie.errors.full_messages}"}
     else
-      render json: movie.to_json
+      render json: movie
     end
   end
 
   def show
     movie = Movie.find(params[:id])
-    render json: movie.to_json
+    render json: {movie: movie, genres: movie.genre_names}
   end
   
   def update
@@ -37,7 +37,7 @@ class MoviesController < ApplicationController
     if movie.save == false
       render json: {message: "Updates could not be saved due to the following error(s): #{movie.errors.full_messages}"}
     else
-      render json: movie.to_json
+      render json: movie
     end
   end
 

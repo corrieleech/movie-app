@@ -1,7 +1,7 @@
 @jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NDM0MjY1OTR9.ADIX4h9L7JGk-NqsrDGwdAIy-UQwQ7RVaXs4wZmnrZ4
 #nonadmin
 
-#Movies Index
+#Movies Index 
 GET http://localhost:3000/movies
 
 ###
