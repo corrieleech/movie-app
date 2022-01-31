@@ -78,3 +78,11 @@ DELETE http://localhost:3000/actors/18
 Authorization: Bearer {{ jwt }}
 
 ###
+#Movie Genre Create
+POST http://localhost:3000/movie_genres/
+Content-Type: application/json
+
+{
+  "movie_id": 13,
+  "genre_id": 5
+}
