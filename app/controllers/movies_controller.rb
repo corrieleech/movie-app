@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  # before_action :authenticate_admin, only: [:create, :update, :destroy]
+  before_action :authenticate_admin, only: [:create, :update, :destroy]
   
   def index
     movies = Movie.where("english = true")
@@ -13,11 +13,10 @@ class MoviesController < ApplicationController
       plot: params[:plot],
       director: params[:director], 
       english: params[:english])
-    movie.save
-    if movie.save == false
-      render json: {message: "Entry could not be created due to the following error(s): #{movie.errors.full_messages}"}
-    else
+    if movie.save
       render json: movie
+    else
+      render json: {errors: movie.errors.full_messages}, status: 422
     end
   end
 
@@ -34,10 +33,10 @@ class MoviesController < ApplicationController
     movie.director = params[:director] || movie.director
     movie.english = params[:english] || movie.english
     movie.save
-    if movie.save == false
-      render json: {message: "Updates could not be saved due to the following error(s): #{movie.errors.full_messages}"}
-    else
+    if movie.save
       render json: movie
+    else
+      render json: {errors: movie.errors.full_messages}, status: 422
     end
   end
 
